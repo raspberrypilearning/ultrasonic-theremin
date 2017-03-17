@@ -1,8 +1,12 @@
-- name: Raspberry Pi camera module
-  img: camera
-- name: 1 x Solderless breadboard
+- name: 330Ω Resistor
+  img: resistor-330r
+- name: 470Ω Resistor
+  img: resistor-470r
+- name: Solderless Breadboard
   img: breadboard
-- name: 2 x Male-to-female jumper leads
+- name: Ultrasonic Distance Sensor
+  img: ultrasonic-distance-sensor
+- name: 3 x Male to Male Jumper Leads
+  img: jumper-male-to-male
+- name: 4 x Male to Female Jumper Leads
   img: jumper-male-to-female
-- name: 1 x Tactile button
-  img: tactile-push-button
