@@ -1,4 +1,4 @@
 By building an Ultrasonic Theremin, you will learn:
 
-- How to detect distances with and Ultrasonic Distance Sensor
-- How to communicate variable between Sonic Pi and Python
+- How to detect distances with an ultrasonic distance sensor
+- How to communicate variables between Sonic Pi and Python
