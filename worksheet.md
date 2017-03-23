@@ -1,31 +1,31 @@
-# The Raspberry Pi, Ultrasonic Theremin
+# The Raspberry Pi ultrasonic theremin
 
-In this resource, you are going to make your very own theremin using an Ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
+In this resource, you are going to make your very own theremin using an ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
 
 ![theremin](https://upload.wikimedia.org/wikipedia/commons/c/c5/Lydia_kavina.jpg)
 	<a href="https://en.wikipedia.org/wiki/User:G2pavlov" class="extiw" title="en:User:G2pavlov">G2pavlov</a> at the <a href="https://en.wikipedia.org/wiki/" class="extiw" title="w:">English language Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3ALydia_kavina.jpg">via Wikimedia Commons</a>
 
-A [theremin](https://en.wikipedia.org/wiki/Theremin) is a unique musical instrument, in that it produces sound without the performer touching it. The circuitry for a theremin is fairly complicated, but you can fake it by using ultrasonic distance sensors.
+A [theremin](https://en.wikipedia.org/wiki/Theremin) is a unique musical instrument, in that it produces sound without being touched by the performer. The circuitry for a theremin is fairly complicated, but you can fake it by using ultrasonic distance sensors.
 
 ## Setting up the circuitry.
 
-An ultrasonic distance sensor is a device that sends out ultrasonic sound and measures the time for it to reflect of nearby objects and be reflected back. They can measure distances fairly accurately up to about a meter.
+An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately, up to about a meter.
 
 ![ultrasonic](images/Ultrasonic_Distance_Sensor.png)
 
-An ultrasonic distance sensor has 4 pins. They are called *Ground* (`Gnd`), *Trigger* (`Trig`), *Echo* (`Echo`) and *Power* (`Vcc`).
+An ultrasonic distance sensor has four pins. They are called *Ground* (`Gnd`), *Trigger* (`Trig`), *Echo* (`Echo`) and *Power* (`Vcc`).
 
 To use an ultrasonic distance sensor you need to connect the `Gnd` pin to the ground pin on the Raspberry Pi, the `Trig` pin to a GPIO pin on the Raspberry Pi and the `Vcc` pin to the 5V pin on the Raspberry Pi.
 
-The `Echo` pin is a little more complicated. It needs connecting through a 330 ohm resistor to a GPIO pin on the Raspberry Pi, and that same pin needs to be grounded through a 470 ohm resistor.
+The `Echo` pin is a little more complicated. It needs to be connected through a 330 ohm resistor to a GPIO pin on the Raspberry Pi, and that pin needs to be grounded through a 470 ohm resistor.
 
-The diagram below is one arrangement you can use to set this up.
+The diagram below shows one arrangement you can use to set this up.
 
 ![circuit](images/circuit.png)
 
 ## Detecting distance.
 
-Thanks to the abstractions in the gpiozero module, you can very easily detect the distance an object is away from the distance sensor. If you've wired up the sensor as shown in the diagram, then your echo pin is 17 and your trigger pin is 4.
+Thanks to the abstractions in the GPIO Zero module, you can very easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your echo pin is **17** and your trigger pin is **4**.
 
 1. Click on `Menu` > `Programming` > `Python 3 (IDLE)`, to open up a new Python shell.
 1. In the *shell* click on `New` > `New File` to create a new Python file.
