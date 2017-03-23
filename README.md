@@ -1,4 +1,4 @@
-# Ultrasonic Theremin
+# Ultrasonic theremin
 
 ![](cover.png)
 
