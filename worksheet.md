@@ -50,11 +50,11 @@ The `sensor.distance` is the distance in meters between the object and the senso
 Sonic Pi is going to receive messages from your Python script. This will tell Sonic Pi which note to play.
 
 1. Open Sonic Pi by clicking on **Menu** > **Programming** > **Sonic Pi**
-1. In the buffer that is open, you can begin by writing a `live_loop`. This is a loop that will run forever, but can easily be updated, allowing you to experiment with different sounds.
+1. In the buffer that is open, you can begin by writing a `live_loop`. This is a loop that will run forever, but can easily be updated, allowing you to experiment with different sounds. You can also add a line to reduce the time it takes for Sonic Pi and Python to talk to each other.
 
 	```ruby
 	live_loop :listen do
-
+		set_sched_ahead_time! 0.1
 	end
 	```
 
