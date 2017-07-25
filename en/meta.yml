@@ -1,0 +1,25 @@
+---
+title: Ultrasonic theremin
+hero_image: images/banner.png
+description: In this resource, you will use an ultrasonic distance sensor to control
+  the notes played by Sonic Pi
+original_url: https://raspberrypi.org/learning/ultrasonic-theremin
+theme: red
+duration: 2
+listed: false
+ingredient: false
+copyedit: true
+curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
+interests: ''
+technologies: rpi, physical computing, python
+site_areas: ''
+steps:
+- title: Introduction
+- title: What you will need
+- title: The Raspberry Pi ultrasonic theremin
+- title: Setting up the circuitry
+- title: Detecting distance
+- title: Getting Sonic Pi ready
+- title: Sending notes from Python
+- title: What next?
+
