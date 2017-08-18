@@ -4,7 +4,7 @@ hero_image: images/banner.png
 description: In this resource, you will use an ultrasonic distance sensor to control
   the notes played by Sonic Pi
 original_url: https://raspberrypi.org/learning/ultrasonic-theremin
-theme: red
+theme: navy
 duration: 2
 listed: true
 ingredient: false
