@@ -7,7 +7,7 @@ Sonic Pi is going to receive messages from your Python script. This will tell So
 
 	```ruby
 	live_loop :listen do
-		set_sched_ahead_time! 0.1
+	    use_real_time
 	end
 	```
 
@@ -15,28 +15,20 @@ Sonic Pi is going to receive messages from your Python script. This will tell So
 
 	```ruby
 	live_loop :listen do
-		message = sync "/play_this"
+	    use_real_time
+	    note = sync "/osc/play_this"
 	end
 	```
 
-- The message that comes in will be a dictionary, containing the key `:args`. The value of this key will be a list, where the first item is the midi value of the note to be played.
+- The message that comes in will be a list, with the note being the 0th item.
 
 	```ruby
 	live_loop :listen do
-		message = sync "/play_this"
-		note = message[:args][0]
+	    use_real_time
+	    note = sync "/osc/play_this"
+	    play note[0]
 	end
 	```
-
-- Lastly, you need to play the note.
-
-```ruby
-live_loop :listen do
-    message = sync "/play_this"
-	note = message[:args][0]
-	play note
-end
-```
 
 - You can set this live loop to play straight away, by clicking on the **Run** button. You won't hear anything yet, as the loop is not receiving any messages.
 
