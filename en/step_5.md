@@ -96,7 +96,6 @@ while True:
 	sleep(1)
 --- /code ---
 --- /task ---
---- /task ---
 
 --- task ---
 Now that you can find the value of the midi note, you can make your buzzer play the note.
