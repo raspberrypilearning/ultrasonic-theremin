@@ -66,7 +66,7 @@ while True:
 --- /task ---
 
 --- task ---
-Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be convered to an integer, as well.
+Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be converted to an integer, as well.
 
 --- code ---
 ---
