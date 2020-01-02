@@ -1,10 +1,21 @@
-## The Raspberry Pi ultrasonic theremin
+## Detecting distance
 
-In this resource, you are going to make your very own theremin using an ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
+Thanks to the abstractions in the GPIO Zero module, you can very easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your echo pin is **17** and your trigger pin is **4**.
 
-A [theremin](https://en.wikipedia.org/wiki/Theremin) is a unique musical instrument, in that it produces sound without being touched by the performer. The circuitry for a theremin is fairly complicated, but you can fake it by using ultrasonic distance sensors.
+- Click on **Menu** > **Programming** > **Python 3 (IDLE)**, to open up a new Python shell.
+- In the shell, click on **New** > **New File** to create a new Python file.
+- The code to detect distance is below. Type it into your new file, then save and run it.
 
-![theremin](https://upload.wikimedia.org/wikipedia/commons/c/c5/Lydia_kavina.jpg)
-	
-Thereminist Lydia Kavina playing in Ekaterinburg (<a href="https://en.wikipedia.org/wiki/User:G2pavlov" class="extiw" title="en:User:G2pavlov">G2pavlov</a> at the <a href="https://en.wikipedia.org/wiki/" class="extiw" title="w:">English language Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or <a href="http://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA-3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3ALydia_kavina.jpg">via Wikimedia Commons</a>).
+	```python
+	from gpiozero import DistanceSensor
+	from time import sleep
+
+	sensor = DistanceSensor(echo=17, trigger=4)
+
+	while True:
+		print(sensor.distance)
+		sleep(1)
+	```
+
+The `sensor.distance` is the distance in meters between the object and the sensor. Run your code and move your hand backwards and forwards in front of the sensor. You should see the distance changing, as it is printed out in the shell.
 

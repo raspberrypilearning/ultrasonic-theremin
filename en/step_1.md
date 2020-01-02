@@ -1,9 +1,42 @@
-## What you will make
-In this resource, you will use an ultrasonic distance sensor to control the notes played by Sonic Pi, and unleash your inner Beach Boy.
+## Ultrasonic Thereming
 
-## What you will learn
-By building an ultrasonic theremin, you will learn:
+In this resource, you are going to make your very own theremin using an ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
 
+A [theremin](https://en.wikipedia.org/wiki/Theremin) is a unique musical instrument, in that it produces sound without being touched by the performer. The circuitry for a theremin is fairly complicated, but you can fake it by using ultrasonic distance sensors.
+
+![theremin](https://upload.wikimedia.org/wikipedia/commons/c/c5/Lydia_kavina.jpg)
+	
+Thereminist Lydia Kavina playing in Ekaterinburg (<a href="https://en.wikipedia.org/wiki/User:G2pavlov" class="extiw" title="en:User:G2pavlov">G2pavlov</a> at the <a href="https://en.wikipedia.org/wiki/" class="extiw" title="w:">English language Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or <a href="http://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA-3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3ALydia_kavina.jpg">via Wikimedia Commons</a>).
+
+--- collapse ---
+---
+title: What you will need
+---
++ Raspberry Pi
++ Solderless Breadboard
++ Ultrasonic Distance Sensor
++ 6 x Female to Female Jumper Leads
+--- /collapse ---
+
+--- collapse ---
+---
+title: What you will learn
+---
 - How to detect distances with an ultrasonic distance sensor
-- How to communicate variables between Sonic Pi and Python
+- How to play different tones using a tonal buzzer
+- How to map one range of values to another range of values.
+--- /collapse ---
+
+--- collapse ---
+---
+title: Additional information for educators
+---
+
+If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/ultrasonic-theremin/print){:target="_blank"}.
+
+You can [find the solution for this project here](http://rpf.io/p/en/ultrasonic-theremin-get){:target="_blank"}.
+
+--- /collapse ---
+
+
 

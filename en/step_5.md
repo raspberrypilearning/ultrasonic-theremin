@@ -1,14 +1,15 @@
-## Detecting distance
+## Sending notes from Python
 
-Thanks to the abstractions in the GPIO Zero module, you can very easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your echo pin is **17** and your trigger pin is **4**.
+To finish your program, you need to send note midi values to Sonic Pi from your Python file.
 
-- Click on **Menu** > **Programming** > **Python 3 (IDLE)**, to open up a new Python shell.
-- In the shell, click on **New** > **New File** to create a new Python file.
-- The code to detect distance is below. Type it into your new file, then save and run it.
+- You'll need to use the OSC library for this part. There are two imports to be added to the top of your file, to allow Python to send messages.
 
 	```python
 	from gpiozero import DistanceSensor
 	from time import sleep
+
+	from pythonosc import osc_message_builder
+	from pythonosc import udp_client
 
 	sensor = DistanceSensor(echo=17, trigger=4)
 
@@ -17,5 +18,57 @@ Thanks to the abstractions in the GPIO Zero module, you can very easily detect h
 		sleep(1)
 	```
 
-The `sensor.distance` is the distance in meters between the object and the sensor. Run your code and move your hand backwards and forwards in front of the sensor. You should see the distance changing, as it is printed out in the shell.
+- Now you need to create a `sender` object that can send the message.
+
+	```python
+	from gpiozero import DistanceSensor
+	from time import sleep
+
+	from pythonosc import osc_message_builder
+	from pythonosc import udp_client
+
+	sensor = DistanceSensor(echo=17, trigger=4)
+	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+
+	while True:
+		print(sensor.distance)
+		sleep(1)
+	```
+
+- You need to convert the distance into a midi value. These should be integers (whole numbers), and hover around the value **60**, which is middle C. To do this you need to round the distance to an integer, multiply it by 100 and then add a little bit, so that the note is not too low in pitch.
+
+	```python
+	from gpiozero import DistanceSensor
+	from time import sleep
+
+	from pythonosc import osc_message_builder
+	from pythonosc import udp_client
+
+	sensor = DistanceSensor(echo=17, trigger=4)
+	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+
+	while True:
+		pitch = round(sensor.distance * 100 + 30)
+		sleep(1)
+	```
+
+- To finish off, you need to send the pitch over to Sonic Pi, and reduce the sleep time.
+
+	```python
+	from gpiozero import DistanceSensor
+	from time import sleep
+
+	from pythonosc import osc_message_builder
+	from pythonosc import udp_client
+
+	sensor = DistanceSensor(echo=17, trigger=4)
+	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+
+	while True:
+		pitch = round(sensor.distance * 100 + 30)
+		sender.send_message('/play_this', pitch)
+		sleep(0.1)
+	```
+
+- Save and run your code and see what happens. If all goes well, you've made your very own theremin.
 

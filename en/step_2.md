@@ -1,21 +1,16 @@
-## What you will need
+## Setting up the circuitry
 
-### Hardware
+An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately, up to about a meter.
 
-* 330Ω Resistor
-* 470Ω Resistor
-* Solderless Breadboard
-* Ultrasonic Distance Sensor
-* 3 x Male to Male Jumper Leads
-* 4 x Male to Female Jumper Leads
+![ultrasonic](images/Ultrasonic_Distance_Sensor.png)
 
-### Software
+An ultrasonic distance sensor has four pins. They are called **Ground** (**Gnd**), **Trigger** (**Trig**), **Echo** (**Echo**) and **Power** (**Vcc**).
 
-#### Software Installation
+To use an ultrasonic distance sensor you need to connect the **Gnd** pin to the ground pin on the Raspberry Pi, the **Trig** pin to a GPIO pin on the Raspberry Pi and the **Vcc** pin to the 5V pin on the Raspberry Pi.
 
-This project relies on the **latest** version of Sonic Pi and python-osc. To install the software you need, run the following commands in a terminal window:
+The **Echo** pin is a little more complicated. It needs to be connected through a 330 ohm resistor to a GPIO pin on the Raspberry Pi, and that pin needs to be grounded through a 470 ohm resistor.
 
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo pip3 install python-osc
-```
+The diagram below shows one suggested arrangement for setting this up.
+
+![circuit](images/circuit.png)
+

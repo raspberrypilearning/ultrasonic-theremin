@@ -1,16 +1,34 @@
-## Setting up the circuitry
+## Getting Sonic Pi ready
 
-An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately, up to about a meter.
+Sonic Pi is going to receive messages from your Python script. This will tell Sonic Pi which note to play.
 
-![ultrasonic](images/Ultrasonic_Distance_Sensor.png)
+- Open Sonic Pi by clicking on **Menu** > **Programming** > **Sonic Pi**
+- In the buffer that is open, you can begin by writing a `live_loop`. This is a loop that will run forever, but can easily be updated, allowing you to experiment with different sounds. You can also add a line to reduce the time it takes for Sonic Pi and Python to talk to each other.
 
-An ultrasonic distance sensor has four pins. They are called **Ground** (**Gnd**), **Trigger** (**Trig**), **Echo** (**Echo**) and **Power** (**Vcc**).
+	```ruby
+	live_loop :listen do
+	    use_real_time
+	end
+	```
 
-To use an ultrasonic distance sensor you need to connect the **Gnd** pin to the ground pin on the Raspberry Pi, the **Trig** pin to a GPIO pin on the Raspberry Pi and the **Vcc** pin to the 5V pin on the Raspberry Pi.
+- Next you can sync the live loop with the messages that will be coming from Python.
 
-The **Echo** pin is a little more complicated. It needs to be connected through a 330 ohm resistor to a GPIO pin on the Raspberry Pi, and that pin needs to be grounded through a 470 ohm resistor.
+	```ruby
+	live_loop :listen do
+	    use_real_time
+	    note = sync "/osc/play_this"
+	end
+	```
 
-The diagram below shows one suggested arrangement for setting this up.
+- The message that comes in will be a list, with the note being the 0th item.
 
-![circuit](images/circuit.png)
+	```ruby
+	live_loop :listen do
+	    use_real_time
+	    note = sync "/osc/play_this"
+	    play note[0]
+	end
+	```
+
+- You can set this live loop to play straight away, by clicking on the **Run** button. You won't hear anything yet, as the loop is not receiving any messages.
 
