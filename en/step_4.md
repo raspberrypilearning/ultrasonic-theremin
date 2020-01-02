@@ -1,34 +1,62 @@
-## Getting Sonic Pi ready
+## Adding a buzzer
 
-Sonic Pi is going to receive messages from your Python script. This will tell Sonic Pi which note to play.
+Now that you can tell how far away your hand is, from the distance sensor. It is time to add a buzzer.
 
-- Open Sonic Pi by clicking on **Menu** > **Programming** > **Sonic Pi**
-- In the buffer that is open, you can begin by writing a `live_loop`. This is a loop that will run forever, but can easily be updated, allowing you to experiment with different sounds. You can also add a line to reduce the time it takes for Sonic Pi and Python to talk to each other.
+--- task ---
+Connect your buzzer directly to the Raspberry Pi, using two female-to-female jumper leads. Here it is shown connected to `GPIO 21` and a `GND` pin
 
-	```ruby
-	live_loop :listen do
-	    use_real_time
-	end
-	```
+![circuit with buzzer connected to GPIO 21](images/circuit_2.png)
+--- /task ---
 
-- Next you can sync the live loop with the messages that will be coming from Python.
+--- task ---
+You can now set up the buzzer in your `theremin.py` file.
 
-	```ruby
-	live_loop :listen do
-	    use_real_time
-	    note = sync "/osc/play_this"
-	end
-	```
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 1,2,6
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
 
-- The message that comes in will be a list, with the note being the 0th item.
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
 
-	```ruby
-	live_loop :listen do
-	    use_real_time
-	    note = sync "/osc/play_this"
-	    play note[0]
-	end
-	```
+while True:
+	print(sensor.distance)
+	sleep(1)
+--- /code ---
+--- /task ---
 
-- You can set this live loop to play straight away, by clicking on the **Run** button. You won't hear anything yet, as the loop is not receiving any messages.
+Here the buzzer has been set up have a range of 3 octaves above and below it's middle value (midi note 69).
 
+--- task ---
+You can test your buzzer works by playing a single note in your `while True` loop.
+
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 10
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
+
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
+
+while True:
+	print(sensor.distance)
+	buzzer.play(Tone(midi=69))
+	sleep(1)
+--- /code ---
+
+Change your code and then run the file.
+--- /task ---

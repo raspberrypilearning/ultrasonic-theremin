@@ -1,74 +1,138 @@
-## Sending notes from Python
+## Mapping distances to midi notes
 
-To finish your program, you need to send note midi values to Sonic Pi from your Python file.
+You want the distance your hand is from the ultrasonic sensor to alter the midi note that is being played.
 
-- You'll need to use the OSC library for this part. There are two imports to be added to the top of your file, to allow Python to send messages.
+The distance sensor produces values between `0` and `1`, where as the buzzer can play midi notes between `33` and `105`.
 
-	```python
-	from gpiozero import DistanceSensor
-	from time import sleep
+--- task ---
+Create a new function in your code, to convert distances to midi values. It will need a parameter for the sensor's distance.
 
-	from pythonosc import osc_message_builder
-	from pythonosc import udp_client
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 9
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
 
-	sensor = DistanceSensor(echo=17, trigger=4)
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
 
-	while True:
-		print(sensor.distance)
-		sleep(1)
-	```
 
-- Now you need to create a `sender` object that can send the message.
+def distance_to_tone(distance_value):
 
-	```python
-	from gpiozero import DistanceSensor
-	from time import sleep
 
-	from pythonosc import osc_message_builder
-	from pythonosc import udp_client
+while True:
+	print(sensor.distance)
+	buzzer.play(Tone(midi=69))
+	sleep(1)
+--- /code ---
+--- /task ---
 
-	sensor = DistanceSensor(echo=17, trigger=4)
-	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+--- task ---
+You need to calculate the range of tones that can be played. The `buzzer` object can tell you it's minimum tone and maximum tone, and then you can subtract one from the other to get the value of the range.
 
-	while True:
-		print(sensor.distance)
-		sleep(1)
-	```
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 10, 11, 12
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
 
-- You need to convert the distance into a midi value. These should be integers (whole numbers), and hover around the value **60**, which is middle C. To do this you need to round the distance to an integer, multiply it by 100 and then add a little bit, so that the note is not too low in pitch.
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
 
-	```python
-	from gpiozero import DistanceSensor
-	from time import sleep
 
-	from pythonosc import osc_message_builder
-	from pythonosc import udp_client
+def distance_to_tone(distance_value):
+    min_tone = buzzer.min_tone.midi
+    max_tone = buzzer.max_tone.midi
+    tone_range = max_tone - min_tone
+	
 
-	sensor = DistanceSensor(echo=17, trigger=4)
-	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+while True:
+	print(sensor.distance)
+	buzzer.play(Tone(midi=69))
+	sleep(1)
+--- /code ---
+--- /task ---
 
-	while True:
-		pitch = round(sensor.distance * 100 + 30)
-		sleep(1)
-	```
+--- task ---
+Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be convered to an integer, as well.
 
-- To finish off, you need to send the pitch over to Sonic Pi, and reduce the sleep time.
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 13
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
 
-	```python
-	from gpiozero import DistanceSensor
-	from time import sleep
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
 
-	from pythonosc import osc_message_builder
-	from pythonosc import udp_client
 
-	sensor = DistanceSensor(echo=17, trigger=4)
-	sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
+def distance_to_tone(distance_value):
+    min_tone = buzzer.min_tone.midi
+    max_tone = buzzer.max_tone.midi
+    tone_range = max_tone - min_tone
+    return min_tone + int(tone_range * distance_value)	
 
-	while True:
-		pitch = round(sensor.distance * 100 + 30)
-		sender.send_message('/play_this', pitch)
-		sleep(0.1)
-	```
+while True:
+	print(sensor.distance)
+	buzzer.play(Tone(midi=69))
+	sleep(1)
+--- /code ---
+--- /task ---
+--- /task ---
 
-- Save and run your code and see what happens. If all goes well, you've made your very own theremin.
+--- task ---
+Now that you can find the value of the midi note, you can make your buzzer play the note.
 
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: 
+line_number_start: 
+highlight_lines: 17,18,19,20
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
+
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
+
+
+def distance_to_tone(distance_value):
+    min_tone = buzzer.min_tone.midi
+    max_tone = buzzer.max_tone.midi
+    tone_range = max_tone - min_tone
+    return min_tone + int(tone_range * distance_value)
+
+
+while True:
+    distance_value = uds.distance
+    tone = distance_to_tone(distance_value)
+    buzzer.play(Tone(midi=tone))
+    sleep(0.01)
+
+--- /code ---
+--- /task ---
+
+--- task ---
+Run your file, and then move your hand over the sensor to hear your theremin play.
+--- /task ---

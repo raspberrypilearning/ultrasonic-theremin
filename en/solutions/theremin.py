@@ -9,7 +9,6 @@ def distance_to_tone(distance_value):
     min_tone = buzzer.min_tone.midi
     max_tone = buzzer.max_tone.midi
     tone_range = max_tone - min_tone
-
     return min_tone + int(tone_range * distance_value)
 
 while True:
