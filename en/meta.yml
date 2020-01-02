@@ -18,8 +18,8 @@ version: 4.0
 last_tested: 2020-01-01
 steps: 
 - title: Introduction
-- title: Setting up the circuitry
+- title: Setting up the distance sensor
 - title: Detecting distance
-- title: Getting Sonic Pi ready
-- title: Sending notes from Python
+- title: Adding a buzzer
+- title: Mapping distances to midi notes
 - title: What next?
