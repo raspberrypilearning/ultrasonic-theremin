@@ -16,7 +16,7 @@ title: What you will need
 + A solderless breadboard
 + A [ultrasonic distance sensor](https://www.amazon.co.uk/HC-SR04P-Distance-Measuring-Operating-Ultrasonic/dp/B07WBZFM92/ref=sr_1_1?keywords=3.3V+ultrasonic&qid=1577963664&sr=8-1)
 + A [tonal buzzer](https://www.amazon.co.uk/Cylewet-Terminals-Electronic-Electromagnetic-Impedance/dp/B073XH1HCB/ref=sr_1_8?keywords=buzzer&qid=1577963786&rnid=1642204031&s=electronics&sr=1-8)
-+ 6 x female to female jumper leads
++ 6 x female-to-female jumper leads
 --- /collapse ---
 
 --- collapse ---
