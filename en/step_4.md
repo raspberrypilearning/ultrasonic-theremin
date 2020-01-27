@@ -1,4 +1,4 @@
-## Adding a buzzer
+## Add a buzzer
 
 Now that you can tell how far away your hand is from the distance sensor, it is time to add a buzzer.
 
