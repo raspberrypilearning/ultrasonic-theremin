@@ -18,8 +18,8 @@ version: 4.0
 last_tested: 2020-01-01
 steps: 
 - title: Introduction
-- title: Setting up the distance sensor
-- title: Detecting distance
-- title: Adding a buzzer
-- title: Mapping distances to midi notes
+- title: Set up the distance sensor
+- title: How to detect distance
+- title: Add a buzzer
+- title: Map distances to midi notes
 - title: What next?
