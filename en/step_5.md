@@ -1,11 +1,11 @@
 ## Mapping distances to midi notes
 
-You want the distance your hand is from the ultrasonic sensor to alter the midi note that is being played.
+You want the distance of your hand from the ultrasonic sensor to alter the midi note that is played.
 
 The distance sensor produces values between `0` and `1`, whereas the buzzer can play midi notes between `33` and `105`.
 
 --- task ---
-Create a new function in your code, to convert distances into midi values. It will need a parameter for the sensor's distance.
+Create a new function in your code to convert distances into midi values. It needs a parameter for the sensor's distance.
 
 --- code ---
 ---
@@ -66,7 +66,7 @@ while True:
 --- /task ---
 
 --- task ---
-Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be converted to an integer.
+Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this is a floating point number, it needs to be converted to an integer.
 
 --- code ---
 ---
