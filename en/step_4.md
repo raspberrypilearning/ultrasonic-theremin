@@ -32,7 +32,7 @@ while True:
 --- /code ---
 --- /task ---
 
-Here the buzzer has been set up have a range of three octaves above and below it's middle value (midi note 69).
+Here the buzzer has been set up to have a range of three octaves above and below its middle value (midi note 69).
 
 --- task ---
 You can test your buzzer works by playing a single note in your `while True` loop.
