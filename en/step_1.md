@@ -1,4 +1,4 @@
-## Ultrasonic Theremin
+## Ultrasonic theremin
 
 In this resource, you are going to make your very own theremin using an ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
 
