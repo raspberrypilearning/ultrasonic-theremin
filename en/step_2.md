@@ -8,7 +8,7 @@ Make sure that the distance sensor you are using for this project can be used wi
 
 An ultrasonic distance sensor has four pins. They are called **Ground** (**Gnd**), **Trigger** (**Trig**), **Echo** (**Echo**), and **Power** (**Vcc**).
 
-To use an ultrasonic distance sensor you need to connect the **Gnd** pin to the ground pin on the Raspberry Pi, the **Trig** and **Echo** pins to GPIO pins on the Raspberry Pi and the **Vcc** pin to the 3V3 pin on the Raspberry Pi.
+To use an ultrasonic distance sensor, you need to connect the **Gnd** pin to the ground pin on the Raspberry Pi, the **Trig** and **Echo** pins to GPIO pins on the Raspberry Pi, and the **Vcc** pin to the 3V3 pin on the Raspberry Pi.
 
 --- task ---
 Use four female-to-female jumper leads to wire up the distance sensor directly to the Raspberry Pi.
