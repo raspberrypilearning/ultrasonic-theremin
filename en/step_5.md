@@ -34,7 +34,7 @@ while True:
 --- /task ---
 
 --- task ---
-You need to calculate the range of tones that can be played. The `buzzer` object can tell you it's minimum tone and maximum tone, and then you can subtract one from the other to get the value of the range.
+You need to calculate the range of tones that can be played. The `buzzer` object can tell you its minimum tone and maximum tone, and then you can subtract one from the other to get the value of the range.
 
 --- code ---
 ---
@@ -66,7 +66,7 @@ while True:
 --- /task ---
 
 --- task ---
-Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be converted to an integer, as well.
+Now you can return the `tone_range` multiplied by the `distance_value`, added to the `min_tone`, to get the value of the midi note to be played. As this will be a floating point number, it needs to be converted to an integer.
 
 --- code ---
 ---
