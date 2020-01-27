@@ -1,6 +1,6 @@
 ## Adding a buzzer
 
-Now that you can tell how far away your hand is, from the distance sensor. It is time to add a buzzer.
+Now that you can tell how far away your hand is, from the distance sensor, it is time to add a buzzer.
 
 --- task ---
 Connect your buzzer directly to the Raspberry Pi, using two female-to-female jumper leads. Here it is shown connected to `GPIO 21` and a `GND` pin
@@ -32,7 +32,7 @@ while True:
 --- /code ---
 --- /task ---
 
-Here the buzzer has been set up have a range of 3 octaves above and below it's middle value (midi note 69).
+Here the buzzer has been set up have a range of three octaves above and below it's middle value (midi note 69).
 
 --- task ---
 You can test your buzzer works by playing a single note in your `while True` loop.
