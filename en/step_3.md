@@ -1,6 +1,6 @@
 ## Detecting distance
 
-You can easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your echo pin is **17** and your trigger pin is **4**.
+You can easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your `echo` pin is **17** and your `trigger` pin is **4**.
 
 --- task ---
 Click on **Menu** > **Programming** > **Mu**, to open up a new Python file.
@@ -28,7 +28,7 @@ while True:
 --- /code ---
 --- /task ---
 
-The `uds.distance` is the distance in meters between the object and the sensor.
+The `uds.distance` is the distance in metres between the object and the sensor.
 
 --- task ---
 Run your code and move your hand up and down in front of the sensor. You should see the distance changing, as it is printed out in the shell.
