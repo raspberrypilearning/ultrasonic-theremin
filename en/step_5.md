@@ -2,7 +2,7 @@
 
 You want the distance your hand is from the ultrasonic sensor to alter the midi note that is being played.
 
-The distance sensor produces values between `0` and `1`, where as the buzzer can play midi notes between `33` and `105`.
+The distance sensor produces values between `0` and `1`, whereas the buzzer can play midi notes between `33` and `105`.
 
 --- task ---
 Create a new function in your code, to convert distances to midi values. It will need a parameter for the sensor's distance.
