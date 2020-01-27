@@ -1,4 +1,4 @@
-## Mapping distances to midi notes
+## Map distances to midi notes
 
 You want the distance of your hand from the ultrasonic sensor to alter the midi note that is played.
 
