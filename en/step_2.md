@@ -13,7 +13,7 @@ To use an ultrasonic distance sensor you need to connect the **Gnd** pin to the 
 --- task ---
 Use four female-to-female jumper leads to wire up the distance sensor directly to the Raspberry Pi.
 
-The diagram below shows one suggested arrangement for setting this up with the `echo` pin connected to `GPIO 17` and the `trigger` pin connected to `GPIO 27`
+The diagram below shows one suggested arrangement for setting this up with the `echo` pin connected to `GPIO 17` and the `trigger` pin connected to `GPIO 27`:
 
 ![circuit](images/circuit_1.png)
 --- /task ---
