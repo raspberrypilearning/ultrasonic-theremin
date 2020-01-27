@@ -1,6 +1,6 @@
-## Setting up the distance sensor
+## Set up the distance sensor
 
-An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately, up to about a metre.
+An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately (up to about a metre).
 
 ![ultrasonic](images/Ultrasonic_Distance_Sensor.png)
 
