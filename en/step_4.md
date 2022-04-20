@@ -1,16 +1,62 @@
-## Setting up the circuitry
+## Add a buzzer
 
-An ultrasonic distance sensor is a device that sends out pulses of ultrasonic sound, and measures the time they take to bounce off nearby objects and be reflected back. They can measure distances fairly accurately, up to about a meter.
+Now that you can tell how far away your hand is from the distance sensor, it is time to add a buzzer.
 
-![ultrasonic](images/Ultrasonic_Distance_Sensor.png)
+--- task ---
+Connect your buzzer directly to the Raspberry Pi, using two female-to-female jumper leads. Here it is shown connected to `GPIO 21` and a `GND` pin:
 
-An ultrasonic distance sensor has four pins. They are called **Ground** (**Gnd**), **Trigger** (**Trig**), **Echo** (**Echo**) and **Power** (**Vcc**).
+![circuit with buzzer connected to GPIO 21](images/circuit_2.png)
+--- /task ---
 
-To use an ultrasonic distance sensor you need to connect the **Gnd** pin to the ground pin on the Raspberry Pi, the **Trig** pin to a GPIO pin on the Raspberry Pi and the **Vcc** pin to the 5V pin on the Raspberry Pi.
+--- task ---
+You can now set up the buzzer in your `theremin.py` file.
 
-The **Echo** pin is a little more complicated. It needs to be connected through a 330 ohm resistor to a GPIO pin on the Raspberry Pi, and that pin needs to be grounded through a 470 ohm resistor.
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 1,2,6
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
 
-The diagram below shows one suggested arrangement for setting this up.
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
 
-![circuit](images/circuit.png)
+while True:
+	print(sensor.distance)
+	sleep(1)
+--- /code ---
+--- /task ---
 
+Here the buzzer has been set up to have a range of three octaves above and below its middle value (midi note 69).
+
+--- task ---
+You can test your buzzer works by playing a single note in your `while True` loop.
+
+--- code ---
+---
+language: python
+filename: theremin.py
+line_numbers: true
+line_number_start: 
+highlight_lines: 10
+---
+from gpiozero import DistanceSensor, TonalBuzzer
+from gpiozero.tones import Tone
+from time import sleep
+
+uds = DistanceSensor(trigger=27, echo=17)
+buzzer = TonalBuzzer(21, octaves=3)
+
+while True:
+	print(sensor.distance)
+	buzzer.play(Tone(midi=69))
+	sleep(1)
+--- /code ---
+
+Change your code and then run the file.
+--- /task ---
