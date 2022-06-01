@@ -17,12 +17,14 @@ hardware: raspberry-pi, electronic-components
 software: python, sonic-pi
 version: 4.0
 last_tested: 2020-01-01
-steps: 
+steps:
 - title: Introduction
 - title: Set up the distance sensor
-  completion: engaged
 - title: How to detect distance
+  completion:
+  - engaged
 - title: Add a buzzer
 - title: Map distances to midi notes
-  completion: internal
+  completion:
+  - internal
 - title: What next?
