@@ -1,6 +1,6 @@
 ## Ultrasonic theremin
 
-In this resource, you are going to make your very own theremin using an ultrasonic distance sensor and a little bit of Python and Sonic Pi code.
+In this resource, you are going to make your very own theremin using an ultrasonic distance sensor, a buzzer, and a little bit of Python.
 
 A [theremin](https://en.wikipedia.org/wiki/Theremin) is a unique musical instrument: it produces sound without being touched by the performer. The circuitry for a theremin is fairly complicated, but you can use ultrasonic distance sensors to fake it.
 
