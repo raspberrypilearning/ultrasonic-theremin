@@ -2,7 +2,7 @@
 
 ![](cover.png)
 
-In this resource, you will use an ultrasonic distance sensor to control the notes played by Sonic Pi, and unleash your inner Beach Boy.
+In this resource, you will use an ultrasonic distance sensor to control the notes played by a buzzer, and unleash your inner Beach Boy.
 
 ## Licence
 
