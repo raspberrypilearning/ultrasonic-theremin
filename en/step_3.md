@@ -1,6 +1,6 @@
 ## How to detect distance
 
-You can easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your `echo` pin is **17** and your `trigger` pin is **4**.
+You can easily detect how far away an object is from the distance sensor. If you've wired up the sensor as shown in the diagram, then your `echo` pin is **17** and your `trigger` pin is **27**.
 
 --- task ---
 Click on **Menu** > **Programming** > **Mu**, to open up a new Python file.

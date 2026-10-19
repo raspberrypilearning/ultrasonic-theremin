@@ -27,7 +27,7 @@ uds = DistanceSensor(trigger=27, echo=17)
 buzzer = TonalBuzzer(21, octaves=3)
 
 while True:
-	print(sensor.distance)
+	print(uds.distance)
 	sleep(1)
 --- /code ---
 --- /task ---
@@ -53,7 +53,7 @@ uds = DistanceSensor(trigger=27, echo=17)
 buzzer = TonalBuzzer(21, octaves=3)
 
 while True:
-	print(sensor.distance)
+	print(uds.distance)
 	buzzer.play(Tone(midi=69))
 	sleep(1)
 --- /code ---
