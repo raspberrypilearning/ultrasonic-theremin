@@ -27,7 +27,7 @@ def distance_to_tone(distance_value):
 
 
 while True:
-	print(sensor.distance)
+	print(uds.distance)
 	buzzer.play(Tone(midi=69))
 	sleep(1)
 --- /code ---
@@ -59,7 +59,7 @@ def distance_to_tone(distance_value):
 	
 
 while True:
-	print(sensor.distance)
+	print(uds.distance)
 	buzzer.play(Tone(midi=69))
 	sleep(1)
 --- /code ---
@@ -91,7 +91,7 @@ def distance_to_tone(distance_value):
     return min_tone + int(tone_range * distance_value)	
 
 while True:
-	print(sensor.distance)
+	print(uds.distance)
 	buzzer.play(Tone(midi=69))
 	sleep(1)
 --- /code ---
